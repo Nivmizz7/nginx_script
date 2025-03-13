@@ -18,7 +18,7 @@ Nginx is a high-performance and flexible web server often used to serve static w
 
 ## Available Scripts
 
-### List of Enabled Sites : '''bash list_sites.sh'''
+### List of Enabled Sites : list_sites.sh
 
 This script lists all the enabled websites on your Nginx server, displaying information such as the domain name, folder path, URL, and whether PHP is configured.
 
