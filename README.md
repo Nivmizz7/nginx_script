@@ -1,55 +1,55 @@
-# Scripts pour Serveur Nginx
+# Nginx Server Scripts
 
-Ce dépôt contient des scripts utiles pour la gestion et la configuration d'un serveur web Nginx. Ces scripts peuvent vous aider à automatiser certaines tâches et à améliorer votre flux de travail.
+This repository contains useful scripts for managing and configuring an Nginx web server. These scripts can help automate certain tasks and improve your workflow.
 
-## Table des matières
+## Table of Contents
 
 - [Introduction](#introduction)
-- [Scripts disponibles](#scripts-disponibles)
-  - [Liste des sites activés](#liste-des-sites-activés)
-  - [Autres scripts](#autres-scripts)
-- [Utilisation](#utilisation)
+- [Available Scripts](#available-scripts)
+  - [List of Enabled Sites](#list-of-enabled-sites)
+  - [Other Scripts](#other-scripts)
+- [Usage](#usage)
 - [Contributions](#contributions)
-- [Licence](#licence)
+- [License](#license)
 
 ## Introduction
 
-Nginx est un serveur web performant et flexible, souvent utilisé pour servir des sites web statiques et comme proxy inverse pour des applications. Les scripts fournis ici visent à simplifier la gestion des configurations et à fournir des informations utiles sur les sites hébergés.
+Nginx is a high-performance and flexible web server often used to serve static websites and as a reverse proxy for applications. The scripts provided here aim to simplify configuration management and provide useful information about hosted sites.
 
-## Scripts disponibles
+## Available Scripts
 
-### Liste des sites activés
+### List of Enabled Sites
 
-Ce script listera tous les sites web activés sur votre serveur Nginx, en affichant des informations telles que le nom de domaine, le chemin du dossier, l'URL et si PHP est configuré.
+This script lists all the enabled websites on your Nginx server, displaying information such as the domain name, folder path, URL, and whether PHP is configured.
 
 ```bash
 #!/bin/bash
 
-# Répertoire des sites Nginx
+# Nginx sites directory
 NGINX_SITES_ENABLED="/etc/nginx/sites-enabled"
 
-# Vérifie si le répertoire existe
+# Check if the directory exists
 if [ ! -d "$NGINX_SITES_ENABLED" ]; then
-  echo "Le répertoire $NGINX_SITES_ENABLED n'existe pas."
+  echo "The directory $NGINX_SITES_ENABLED does not exist."
   exit 1
 fi
 
-# Déclaration des tableaux pour stocker les données
+# Declare arrays to store data
 declare -a domains
 declare -a paths
 declare -a urls
 declare -a php_statuses
 
-# Remplissage des tableaux avec les informations
+# Populate arrays with information
 for site in "$NGINX_SITES_ENABLED"/*; do
   if [ -f "$site" ]; then
     domain=$(grep -oP '(?<=server_name\s)[^;]+' "$site" | xargs)
     path=$(grep -oP '(?<=root\s)[^;]+' "$site" | xargs)
     url="http://$domain"
     if grep -q "fastcgi_pass" "$site"; then
-      php_status="Oui"
+      php_status="Yes"
     else
-      php_status="Non"
+      php_status="No"
     fi
 
     if [ -n "$domain" ] && [ -n "$path" ]; then
@@ -61,5 +61,5 @@ for site in "$NGINX_SITES_ENABLED"/*; do
   fi
 done
 
-# Calcul des largeurs maximales et affichage du tableau
-# (Ajouter ici le reste du script comme montré précédemment)
+# Calculate maximum widths and display the table
+# (Add the rest of the script here as shown previously)
