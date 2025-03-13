@@ -2,16 +2,6 @@
 
 This repository contains useful scripts for managing and configuring an Nginx web server. These scripts can help automate certain tasks and improve your workflow.
 
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Available Scripts](#available-scripts)
-  - [List of Enabled Sites](#list-of-enabled-sites-:-list_sites.sh)
-  - [Other Scripts](#other-scripts)
-- [Usage](#usage)
-- [Contributions](#contributions)
-- [License](#license)
-
 ## Introduction
 
 Nginx is a high-performance and flexible web server often used to serve static websites and as a reverse proxy for applications. The scripts provided here aim to simplify configuration management and provide useful information about hosted sites.
