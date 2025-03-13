@@ -1,4 +1,4 @@
-# nginx_script# Scripts pour Serveur Nginx
+# Scripts pour Serveur Nginx
 
 Ce dépôt contient des scripts utiles pour la gestion et la configuration d'un serveur web Nginx. Ces scripts peuvent vous aider à automatiser certaines tâches et à améliorer votre flux de travail.
 
