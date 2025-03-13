@@ -6,7 +6,7 @@ This repository contains useful scripts for managing and configuring an Nginx we
 
 - [Introduction](#introduction)
 - [Available Scripts](#available-scripts)
-  - [List of Enabled Sites](#list-of-enabled-sites)
+  - [List of Enabled Sites](#list-of-enabled-sites-:-list_sites.sh)
   - [Other Scripts](#other-scripts)
 - [Usage](#usage)
 - [Contributions](#contributions)
